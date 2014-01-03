@@ -8,7 +8,7 @@ namespace eftesting.Models
 {
     public class Stream
     {
-        public int SteamId { get; set; }
+        public int StreamId { get; set; }
         public string Name { get; set; }
         
         //TODO: how can we implement these DateTime fields with default values instead of having to set them manually?
