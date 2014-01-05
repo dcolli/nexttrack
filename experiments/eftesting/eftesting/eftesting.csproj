@@ -141,10 +141,20 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\RoomController.cs" />
+    <Compile Include="Controllers\StreamController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="DAL\NexttrackContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201401031758422_InitialCreate.cs" />
+    <Compile Include="Migrations\201401031758422_InitialCreate.Designer.cs">
+      <DependentUpon>201401031758422_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201401050433211_SimplifyModelClassesForTesting.cs" />
+    <Compile Include="Migrations\201401050433211_SimplifyModelClassesForTesting.Designer.cs">
+      <DependentUpon>201401050433211_SimplifyModelClassesForTesting.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Room.cs" />
@@ -194,7 +204,14 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201401031758422_InitialCreate.resx">
+      <DependentUpon>201401031758422_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201401050433211_SimplifyModelClassesForTesting.resx">
+      <DependentUpon>201401050433211_SimplifyModelClassesForTesting.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
