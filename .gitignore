@@ -37,6 +37,12 @@ x64/
 *.vssscc
 .builds
 
+# Database files
+*.dbmdl
+*.mdf
+*.ldf
+*.Database.dbmdl
+
 # Visual C++ cache files
 ipch/
 *.aps

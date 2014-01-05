@@ -13,43 +13,43 @@ using eftesting.DAL;
 
 namespace eftesting.Controllers
 {
-    public class RoomController : ApiController
+    public class StreamController : ApiController
     {
         private NexttrackContext db = new NexttrackContext();
 
-        // GET api/Room
-        public IQueryable<Room> GetRooms()
+        // GET api/Stream
+        public IQueryable<Stream> GetStreams()
         {
-            return db.Rooms;
+            return db.Streams;
         }
 
-        // GET api/Room/5
-        [ResponseType(typeof(Room))]
-        public IHttpActionResult GetRoom(int id)
+        // GET api/Stream/5
+        [ResponseType(typeof(Stream))]
+        public IHttpActionResult GetStream(int id)
         {
-            Room room = db.Rooms.Find(id);
-            if (room == null)
+            Stream stream = db.Streams.Find(id);
+            if (stream == null)
             {
                 return NotFound();
             }
 
-            return Ok(room);
+            return Ok(stream);
         }
 
-        // PUT api/Room/5
-        public IHttpActionResult PutRoom(int id, Room room)
+        // PUT api/Stream/5
+        public IHttpActionResult PutStream(int id, Stream stream)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != room.RoomId)
+            if (id != stream.StreamId)
             {
                 return BadRequest();
             }
 
-            db.Entry(room).State = EntityState.Modified;
+            db.Entry(stream).State = EntityState.Modified;
 
             try
             {
@@ -57,7 +57,7 @@ namespace eftesting.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!RoomExists(id))
+                if (!StreamExists(id))
                 {
                     return NotFound();
                 }
@@ -70,35 +70,35 @@ namespace eftesting.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST api/Room
-        [ResponseType(typeof(Room))]
-        public IHttpActionResult PostRoom(Room room)
+        // POST api/Stream
+        [ResponseType(typeof(Stream))]
+        public IHttpActionResult PostStream(Stream stream)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.Rooms.Add(room);
+            db.Streams.Add(stream);
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = room.RoomId }, room);
+            return CreatedAtRoute("DefaultApi", new { id = stream.StreamId }, stream);
         }
 
-        // DELETE api/Room/5
-        [ResponseType(typeof(Room))]
-        public IHttpActionResult DeleteRoom(int id)
+        // DELETE api/Stream/5
+        [ResponseType(typeof(Stream))]
+        public IHttpActionResult DeleteStream(int id)
         {
-            Room room = db.Rooms.Find(id);
-            if (room == null)
+            Stream stream = db.Streams.Find(id);
+            if (stream == null)
             {
                 return NotFound();
             }
 
-            db.Rooms.Remove(room);
+            db.Streams.Remove(stream);
             db.SaveChanges();
 
-            return Ok(room);
+            return Ok(stream);
         }
 
         protected override void Dispose(bool disposing)
@@ -110,9 +110,9 @@ namespace eftesting.Controllers
             base.Dispose(disposing);
         }
 
-        private bool RoomExists(int id)
+        private bool StreamExists(int id)
         {
-            return db.Rooms.Count(e => e.RoomId == id) > 0;
+            return db.Streams.Count(e => e.StreamId == id) > 0;
         }
     }
 }
